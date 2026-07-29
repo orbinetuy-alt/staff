@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { RouteTransition } from "./components/RouteTransition";
 import "./globals.css";
-
-const geist = Geist({
-  variable: "--font-geist",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Staff Point | Gestión y tercerización de personal",
@@ -24,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={geist.variable}>{children}</body>
+      <body>
+        <RouteTransition />
+        {children}
+      </body>
     </html>
   );
 }

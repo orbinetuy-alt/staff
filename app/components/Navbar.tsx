@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const navigation = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Soluciones", href: "#soluciones" },
-  { label: "Sectores", href: "#sectores" },
-  { label: "Cómo trabajamos", href: "#como-trabajamos" },
+  { label: "Inicio", href: "/#inicio" },
+  { label: "Soluciones", href: "/#soluciones" },
+  { label: "Sectores", href: "/#sectores" },
+  { label: "Cómo trabajamos", href: "/#como-trabajamos" },
 ];
 
 export function Navbar() {
@@ -24,9 +25,9 @@ export function Navbar() {
   return (
     <header className="site-header">
       <div className="nav-shell">
-        <a
+        <Link
           className="brand"
-          href="#inicio"
+          href="/#inicio"
           aria-label="Staff Point, ir al inicio"
           onClick={() => setMenuOpen(false)}
         >
@@ -37,20 +38,20 @@ export function Navbar() {
               Gestión y tercerización de personal
             </span>
           </span>
-        </a>
+        </Link>
 
         <nav className="desktop-nav" aria-label="Navegación principal">
           {navigation.map((item) => (
-            <a key={item.href} href={item.href}>
+            <Link key={item.href} href={item.href}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a className="nav-cta desktop-cta" href="#contacto">
+        <Link className="nav-cta desktop-cta" href="/#contacto">
           Solicitar personal
           <span aria-hidden="true">→</span>
-        </a>
+        </Link>
 
         <button
           className="menu-toggle"
@@ -72,23 +73,23 @@ export function Navbar() {
       >
         <div className="mobile-nav-inner">
           {navigation.map((item, index) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
             >
               <span className="mobile-index">0{index + 1}</span>
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a
+          <Link
             className="nav-cta mobile-cta"
-            href="#contacto"
+            href="/#contacto"
             onClick={() => setMenuOpen(false)}
           >
             Solicitar personal
             <span aria-hidden="true">→</span>
-          </a>
+          </Link>
         </div>
       </nav>
     </header>
