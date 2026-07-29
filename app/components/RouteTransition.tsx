@@ -13,6 +13,11 @@ const prefetchedRoutes = [
   "/soluciones/equipos-dedicados",
 ];
 
+function normalizePathname(pathname: string) {
+  if (pathname === "/") return pathname;
+  return pathname.replace(/\/+$/, "");
+}
+
 export function RouteTransition() {
   const pathname = usePathname();
   const router = useRouter();
@@ -81,11 +86,11 @@ export function RouteTransition() {
 
       navigationTimer.current = setTimeout(() => {
         router.push(nextHref);
-      }, 430);
+      }, 380);
 
       fallbackTimer.current = setTimeout(() => {
         if (pendingHref.current) window.location.assign(nextHref);
-      }, 3500);
+      }, 1600);
     };
 
     document.addEventListener("click", handleClick);
@@ -94,7 +99,14 @@ export function RouteTransition() {
 
   useEffect(() => {
     const destination = pendingHref.current;
-    if (!destination || new URL(destination, window.location.origin).pathname !== pathname) {
+    const destinationPath = destination
+      ? normalizePathname(new URL(destination, window.location.origin).pathname)
+      : null;
+
+    if (
+      !destination ||
+      destinationPath !== normalizePathname(pathname)
+    ) {
       return;
     }
 
@@ -105,7 +117,7 @@ export function RouteTransition() {
     revealTimer.current = setTimeout(() => {
       setPhase("idle");
       transitioning.current = false;
-    }, 520);
+    }, 450);
   }, [pathname]);
 
   useEffect(
