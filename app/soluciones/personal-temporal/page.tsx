@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: "Personal temporal para empresas | Staff Point",
   description:
     "Cubrí reemplazos, campañas, inventarios, temporadas y aumentos puntuales de actividad con personal temporal.",
+  alternates: { canonical: "/soluciones/personal-temporal/" },
+  openGraph: {
+    title: "Personal temporal para empresas | Staff Point",
+    description: "Cobertura de reemplazos, campañas, inventarios, temporadas y aumentos puntuales de actividad.",
+    url: "/soluciones/personal-temporal/",
+    type: "website",
+  },
 };
 
 export default function TemporaryStaffPage() {

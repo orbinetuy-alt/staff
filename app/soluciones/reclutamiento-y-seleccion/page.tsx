@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: "Reclutamiento y selección de personal | Staff Point",
   description:
     "Staff Point busca, evalúa y preselecciona candidatos para que tu empresa incorpore los perfiles adecuados.",
+  alternates: { canonical: "/soluciones/reclutamiento-y-seleccion/" },
+  openGraph: {
+    title: "Reclutamiento y selección de personal | Staff Point",
+    description: "Búsqueda, evaluación y preselección de candidatos para empresas.",
+    url: "/soluciones/reclutamiento-y-seleccion/",
+    type: "website",
+  },
 };
 
 export default function RecruitmentPage() {

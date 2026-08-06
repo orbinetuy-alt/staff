@@ -5,6 +5,7 @@ const primaryLinks = [
   { label: "Soluciones", href: "/#soluciones" },
   { label: "Sectores", href: "/#sectores" },
   { label: "Cómo trabajamos", href: "/#como-trabajamos" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 const solutionLinks = [
@@ -59,10 +60,19 @@ export function Footer() {
           </nav>
 
           <div className="footer-contact">
-            <h2>¿Necesitás personal?</h2>
-            <p>Contanos qué necesita tu operación y conversemos.</p>
-            <Link href="/#contacto">
-              Solicitar asesoramiento
+            <h2>Contacto</h2>
+            <div className="footer-contact-list">
+              <div>
+                <span>Consultas para empresas</span>
+                <strong>info@staff.com.py</strong>
+              </div>
+              <div>
+                <span>Postulaciones y CV</span>
+                <strong>staff@staff.com.py</strong>
+              </div>
+            </div>
+            <Link className="footer-contact-cta" href="/#contacto">
+              Ver opciones de contacto
               <span aria-hidden="true">→</span>
             </Link>
           </div>

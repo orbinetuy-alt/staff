@@ -8,8 +8,11 @@ export function ScrollReveal() {
 
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-    if (!("IntersectionObserver" in window)) {
+    if (!("IntersectionObserver" in window) || reduceMotion) {
       elements.forEach((element) => element.classList.add("is-visible"));
       return;
     }
@@ -32,9 +35,21 @@ export function ScrollReveal() {
       },
     );
 
-    elements.forEach((element) => observer.observe(element));
+    // Wait for the hidden state to be painted before observing. Without this,
+    // a restored route can become visible again in the same frame and skip
+    // the transition entirely.
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        elements.forEach((element) => observer.observe(element));
+      });
+    });
 
-    return () => observer.disconnect();
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+      observer.disconnect();
+    };
   }, [pathname]);
 
   return null;

@@ -1,10 +1,14 @@
 import { Navbar } from "./components/Navbar";
 import { ScrollReveal } from "./components/ScrollReveal";
 import { Footer } from "./components/Footer";
+import { CvApplicationModal } from "./components/CvApplicationModal";
+import { CompanyContactForm } from "./components/CompanyContactForm";
+import { OrganizationStructuredData } from "./components/OrganizationStructuredData";
 
 export default function Home() {
   return (
     <main id="inicio">
+      <OrganizationStructuredData />
       <ScrollReveal />
       <Navbar />
       <section className="hero" aria-labelledby="hero-title">
@@ -38,67 +42,12 @@ export default function Home() {
 
           <div className="hero-form-wrap">
             <div className="form-heading">
+              <span className="form-audience">Para empresas</span>
               <h2>Solicitá personal</h2>
               <p>Contanos qué necesitás y conversemos.</p>
             </div>
 
-            <form className="lead-form">
-              <div className="form-row">
-                <label>
-                  <span>Nombre y apellido</span>
-                  <input
-                    type="text"
-                    name="name"
-                    autoComplete="name"
-                    placeholder="Tu nombre"
-                    required
-                  />
-                </label>
-
-                <label>
-                  <span>Empresa</span>
-                  <input
-                    type="text"
-                    name="company"
-                    autoComplete="organization"
-                    placeholder="Nombre de la empresa"
-                    required
-                  />
-                </label>
-              </div>
-
-              <label>
-                <span>Email o teléfono</span>
-                <input
-                  type="text"
-                  name="contact"
-                  placeholder="Cómo podemos contactarte"
-                  required
-                />
-              </label>
-
-              <label>
-                <span>¿Qué tipo de personal necesitás?</span>
-                <select name="staffType" defaultValue="" required>
-                  <option value="" disabled>
-                    Seleccioná una opción
-                  </option>
-                  <option value="temporary">Personal temporal</option>
-                  <option value="permanent">Personal permanente</option>
-                  <option value="outsourced">Personal tercerizado</option>
-                  <option value="other">Otra necesidad</option>
-                </select>
-              </label>
-
-              <button className="form-submit" type="submit">
-                Recibir asesoramiento
-                <span aria-hidden="true">→</span>
-              </button>
-
-              <p className="form-note">
-                Te contactamos para entender tu necesidad. Sin compromiso.
-              </p>
-            </form>
+            <CompanyContactForm variant="compact" />
           </div>
         </div>
       </section>
@@ -434,21 +383,45 @@ export default function Home() {
       >
         <div className="contact-shell">
           <div className="contact-copy" data-reveal="heading">
+            <span className="contact-eyebrow">Contacto</span>
             <h2 id="contact-title">
-              Hablemos de lo que tu operación necesita.
+              Elegí el canal indicado para vos.
             </h2>
             <p>
-              Contanos qué tipo de personal buscás y cómo funciona tu
-              operación. Nuestro equipo podrá orientarte hacia la solución más
-              adecuada.
+              Atendemos por separado las necesidades de empresas y las
+              postulaciones laborales para responder cada consulta de forma
+              más ágil.
             </p>
 
-            <div className="contact-expectation">
-              <span aria-hidden="true">→</span>
-              <p>
-                Revisamos tu necesidad, definimos el alcance y preparamos una
-                propuesta para tu empresa.
-              </p>
+            <div className="contact-channels" aria-label="Canales de contacto">
+              <article className="contact-channel contact-channel-primary">
+                <span className="contact-channel-number" aria-hidden="true">
+                  01
+                </span>
+                <div>
+                  <h3>Consultas para empresas</h3>
+                  <p>
+                    Solicitudes de personal, asesoramiento y consultas sobre
+                    nuestras soluciones.
+                  </p>
+                  <strong>info@staff.com.py</strong>
+                </div>
+              </article>
+
+              <article className="contact-channel">
+                <span className="contact-channel-number" aria-hidden="true">
+                  02
+                </span>
+                <div>
+                  <h3>Postulaciones y CV</h3>
+                  <p>
+                    Si estás buscando trabajo, este será el canal para
+                    presentarte y enviarnos tu currículum.
+                  </p>
+                  <strong>staff@staff.com.py</strong>
+                  <CvApplicationModal />
+                </div>
+              </article>
             </div>
           </div>
 
@@ -456,90 +429,15 @@ export default function Home() {
             className="contact-form-wrap reveal-delay-2"
             data-reveal="card"
           >
-            <form className="contact-form">
-              <div className="contact-form-row">
-                <label>
-                  <span>Nombre y apellido</span>
-                  <input
-                    type="text"
-                    name="contactName"
-                    autoComplete="name"
-                    placeholder="Tu nombre"
-                    required
-                  />
-                </label>
-
-                <label>
-                  <span>Empresa</span>
-                  <input
-                    type="text"
-                    name="contactCompany"
-                    autoComplete="organization"
-                    placeholder="Nombre de la empresa"
-                    required
-                  />
-                </label>
-              </div>
-
-              <div className="contact-form-row">
-                <label>
-                  <span>Email</span>
-                  <input
-                    type="email"
-                    name="contactEmail"
-                    autoComplete="email"
-                    placeholder="nombre@empresa.com"
-                    required
-                  />
-                </label>
-
-                <label>
-                  <span>Teléfono</span>
-                  <input
-                    type="tel"
-                    name="contactPhone"
-                    autoComplete="tel"
-                    placeholder="Tu número de contacto"
-                  />
-                </label>
-              </div>
-
-              <label>
-                <span>¿Qué solución necesitás?</span>
-                <select name="contactService" defaultValue="" required>
-                  <option value="" disabled>
-                    Seleccioná una opción
-                  </option>
-                  <option value="outsourcing">
-                    Tercerización de personal
-                  </option>
-                  <option value="recruitment">
-                    Reclutamiento y selección
-                  </option>
-                  <option value="temporary">Personal temporal</option>
-                  <option value="dedicated">Equipos dedicados</option>
-                  <option value="advice">Necesito asesoramiento</option>
-                </select>
-              </label>
-
-              <label>
-                <span>Contanos brevemente tu necesidad</span>
-                <textarea
-                  name="contactMessage"
-                  rows={4}
-                  placeholder="Tipo de perfil, cantidad de personas, horarios o cualquier información que consideres importante."
-                />
-              </label>
-
-              <button className="contact-submit" type="submit">
-                Enviar consulta
-                <span aria-hidden="true">→</span>
-              </button>
-
-              <p className="contact-note">
-                Utilizaremos tus datos únicamente para responder esta consulta.
+            <div className="contact-form-heading">
+              <span>Para empresas</span>
+              <h3>Solicitá asesoramiento</h3>
+              <p>
+                Contanos qué necesita tu operación. La consulta será dirigida a
+                info@staff.com.py.
               </p>
-            </form>
+            </div>
+            <CompanyContactForm variant="full" />
           </div>
         </div>
       </section>

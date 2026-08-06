@@ -8,6 +8,7 @@ const navigation = [
   { label: "Soluciones", href: "/#soluciones" },
   { label: "Sectores", href: "/#sectores" },
   { label: "Cómo trabajamos", href: "/#como-trabajamos" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 export function Navbar() {
