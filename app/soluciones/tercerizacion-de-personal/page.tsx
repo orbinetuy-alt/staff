@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: "Tercerización de personal | Staff Point",
   description:
     "Conocé cómo Staff Point selecciona, incorpora, administra y acompaña personal tercerizado para dar continuidad a la operación de tu empresa.",
+  alternates: { canonical: "/soluciones/tercerizacion-de-personal/" },
+  openGraph: {
+    title: "Tercerización de personal | Staff Point",
+    description: "Selección, incorporación, administración y acompañamiento de personal tercerizado para empresas.",
+    url: "/soluciones/tercerizacion-de-personal/",
+    type: "website",
+  },
 };
 
 const situations = [

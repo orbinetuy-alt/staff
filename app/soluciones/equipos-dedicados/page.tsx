@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: "Equipos dedicados para operaciones | Staff Point",
   description:
     "Armá cuadrillas o grupos completos de personal para operaciones, campañas y tareas específicas con Staff Point.",
+  alternates: { canonical: "/soluciones/equipos-dedicados/" },
+  openGraph: {
+    title: "Equipos dedicados para operaciones | Staff Point",
+    description: "Cuadrillas y grupos completos organizados para operaciones, campañas y tareas específicas.",
+    url: "/soluciones/equipos-dedicados/",
+    type: "website",
+  },
 };
 
 export default function DedicatedTeamsPage() {
