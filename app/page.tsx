@@ -4,6 +4,7 @@ import { Footer } from "./components/Footer";
 import { CvApplicationModal } from "./components/CvApplicationModal";
 import { CompanyContactForm } from "./components/CompanyContactForm";
 import { OrganizationStructuredData } from "./components/OrganizationStructuredData";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -170,6 +171,101 @@ export default function Home() {
                 </a>
               </article>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="alliance-section"
+        id="alianza"
+        aria-labelledby="alliance-title"
+        data-reveal="sheet"
+      >
+        <div className="alliance-shell">
+          <div className="alliance-heading" data-reveal="heading">
+            <div>
+              <span className="alliance-eyebrow">Alianza estratégica</span>
+              <h2 id="alliance-title">
+                Más capacidades, una solución integral.
+              </h2>
+            </div>
+            <p>
+              Staff Point trabaja en alianza con Ascênde para acompañar a las
+              empresas más allá de la incorporación de personal, sumando
+              experiencia especializada en evaluación, capacitación y
+              desarrollo organizacional.
+            </p>
+          </div>
+
+          <div className="alliance-panel">
+            <div className="alliance-brand" data-reveal="card">
+              <div className="alliance-lockup" aria-label="Staff Point más Ascênde">
+                <div className="alliance-staff-logo">
+                  <span className="brand-mark" aria-hidden="true" />
+                  <span>
+                    <strong>STAFF POINT</strong>
+                    <small>Gestión y tercerización de personal</small>
+                  </span>
+                </div>
+                <span className="alliance-plus" aria-hidden="true">+</span>
+                <Image
+                  className="ascende-logo"
+                  src="/ascende.png"
+                  width={300}
+                  height={143}
+                  alt="Ascênde Soluciones Sustentables"
+                />
+              </div>
+
+              <div className="alliance-brand-copy">
+                <span>Dos equipos especializados</span>
+                <p>
+                  Cada necesidad es atendida por el equipo con la experiencia
+                  adecuada, manteniendo una visión coordinada de toda la
+                  gestión del talento.
+                </p>
+              </div>
+            </div>
+
+            <div className="alliance-services" aria-label="Servicios complementarios de Ascênde">
+              <article className="alliance-service reveal-delay-1" data-reveal="card">
+                <span aria-hidden="true">01</span>
+                <h3>Evaluaciones psicolaborales y técnicas</h3>
+                <p>
+                  Entrevistas por competencias, pruebas psicotécnicas,
+                  evaluación de líderes e informes profesionales.
+                </p>
+              </article>
+
+              <article className="alliance-service reveal-delay-2" data-reveal="card">
+                <span aria-hidden="true">02</span>
+                <h3>Coaching y capacitación</h3>
+                <p>
+                  Programas de liderazgo, desarrollo profesional, cursos,
+                  talleres y acompañamiento personalizado.
+                </p>
+              </article>
+
+              <article className="alliance-service reveal-delay-3" data-reveal="card">
+                <span aria-hidden="true">03</span>
+                <h3>Gestión y desarrollo organizacional</h3>
+                <p>
+                  Evaluación de desempeño, clima laboral, gestión por
+                  competencias y mejora continua.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div className="alliance-footer reveal-delay-4" data-reveal="card">
+            <p>
+              Staff Point lidera la selección y tercerización. Ascênde amplía
+              el alcance con soluciones especializadas para desarrollar
+              personas y organizaciones.
+            </p>
+            <a href="https://ascende.com.uy" target="_blank" rel="noreferrer">
+              Conocer Ascênde <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </section>
