@@ -20,6 +20,9 @@ export function ScrollReveal() {
     document.documentElement.classList.add("reveal-enabled");
     elements.forEach((element) => element.classList.remove("is-visible"));
 
+    const mobileViewport = window.matchMedia("(max-width: 560px)").matches;
+    const tabletViewport = window.matchMedia("(max-width: 980px)").matches;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -30,8 +33,11 @@ export function ScrollReveal() {
         });
       },
       {
-        threshold: 0.14,
-        rootMargin: "0px 0px -6% 0px",
+        // On mobile the same cards become considerably taller. A lower
+        // threshold prevents Mobile Safari from skipping their entrance when
+        // only a narrow portion of the element fits in the viewport.
+        threshold: mobileViewport ? 0.025 : tabletViewport ? 0.07 : 0.14,
+        rootMargin: mobileViewport ? "0px 0px -24px 0px" : "0px 0px -6% 0px",
       },
     );
 
