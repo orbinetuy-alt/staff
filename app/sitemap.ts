@@ -30,5 +30,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/partner/evaluaciones-psicolaborales-y-tecnicas/`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/partner/coaching-y-capacitacion/`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/partner/gestion-y-desarrollo-organizacional/`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/partner/mediacion-y-resolucion-de-conflictos/`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/partner/tercerizacion-gestion-integral-rrhh/`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }

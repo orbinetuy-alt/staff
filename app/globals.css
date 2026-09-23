@@ -809,31 +809,23 @@ a {
   line-height: 1.65;
 }
 
-.alliance-panel {
+.alliance-brand-strip {
   display: grid;
-  grid-template-columns: minmax(340px, 0.9fr) minmax(0, 1.3fr);
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 70px);
+  padding: 24px clamp(24px, 3vw, 38px);
   border: 1px solid #cbdadd;
-  border-radius: 9px;
-  overflow: hidden;
+  border-radius: 8px;
   background: white;
-  box-shadow: 0 24px 60px rgba(11, 31, 51, 0.08);
-}
-
-.alliance-brand {
-  padding: clamp(34px, 4vw, 52px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 68px;
-  background: var(--navy);
-  color: white;
+  box-shadow: 0 18px 48px rgba(11, 31, 51, 0.07);
 }
 
 .alliance-lockup {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: start;
-  gap: 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
 }
 
 .alliance-staff-logo {
@@ -855,7 +847,7 @@ a {
 }
 
 .alliance-staff-logo small {
-  color: #9fb0bc;
+  color: #71818e;
   font-size: 9px;
 }
 
@@ -867,17 +859,14 @@ a {
 }
 
 .ascende-logo {
-  width: min(100%, 250px);
+  width: 142px;
   height: auto;
-  padding: 12px 15px;
-  border-radius: 5px;
-  background: white;
   object-fit: contain;
 }
 
 .alliance-brand-copy {
-  padding-top: 26px;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  padding-left: clamp(28px, 4vw, 56px);
+  border-left: 1px solid var(--line);
 }
 
 .alliance-brand-copy span {
@@ -889,86 +878,82 @@ a {
 }
 
 .alliance-brand-copy p {
-  margin: 14px 0 0;
-  color: #bdcad3;
+  max-width: 680px;
+  margin: 7px 0 0;
+  color: #536978;
   font-size: 14px;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
-.alliance-services {
+.alliance-service-links {
+  margin-top: 22px;
+  border-top: 1px solid #cbdadd;
+}
+
+.alliance-service-link {
+  min-height: 86px;
+  padding: 18px 4px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  border-bottom: 1px solid #cbdadd;
+  transition: padding 180ms ease, background-color 180ms ease;
 }
 
-.alliance-service {
-  min-width: 0;
-  padding: clamp(30px, 3vw, 40px) clamp(24px, 2.7vw, 34px);
-  border-left: 1px solid var(--line);
-  transition: background-color 200ms ease;
+.alliance-service-link:hover {
+  padding-right: 16px;
+  padding-left: 16px;
+  background: rgba(255, 255, 255, 0.6);
 }
 
-.alliance-service:hover {
-  background: #f7fafb;
-}
-
-.alliance-service > span {
+.alliance-service-number {
   color: var(--turquoise-dark);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.12em;
 }
 
-.alliance-service h3 {
-  margin: 70px 0 20px;
+.alliance-service-link h3 {
+  margin: 0;
   color: var(--navy);
-  font-size: clamp(21px, 2vw, 27px);
-  letter-spacing: -0.035em;
-  line-height: 1.1;
+  font-size: clamp(19px, 2vw, 25px);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
-.alliance-service p {
-  margin: 0;
-  color: #607483;
-  font-size: 14px;
-  line-height: 1.65;
+.alliance-service-arrow {
+  color: var(--turquoise-dark);
+  font-size: 22px;
+  transition: transform 180ms ease;
 }
 
-.alliance-footer {
-  margin-top: 22px;
-  padding: 24px 28px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 32px;
-  border: 1px solid #cbdadd;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.65);
+.alliance-service-link:hover .alliance-service-arrow {
+  transform: translateX(4px);
 }
 
-.alliance-footer p {
-  max-width: 790px;
-  margin: 0;
-  color: #425a69;
-  font-size: 14px;
-  line-height: 1.6;
+.alliance-more {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.alliance-footer a {
+.alliance-more a {
   display: inline-flex;
   align-items: center;
-  gap: 24px;
+  gap: 14px;
   color: var(--navy);
   font-size: 13px;
   font-weight: 750;
 }
 
-.alliance-footer a span {
+.alliance-more a span {
   color: var(--turquoise-dark);
   font-size: 19px;
   transition: transform 180ms ease;
 }
 
-.alliance-footer a:hover span {
+.alliance-more a:hover span {
   transform: translate(3px, -3px);
 }
 
@@ -2260,6 +2245,46 @@ a {
   font-size: 20px;
 }
 
+.detail-eyebrow {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--turquoise-dark);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.partner-detail .detail-eyebrow,
+.partner-detail .breadcrumbs a:hover,
+.partner-detail .situation-card > span,
+.partner-detail .detail-process-step > span {
+  color: #39814d;
+}
+
+.partner-detail .detail-summary::before,
+.partner-detail .detail-summary li::before {
+  background: #69a86f;
+}
+
+.partner-detail .detail-management {
+  background:
+    radial-gradient(circle at 96% 5%, rgba(105, 168, 111, 0.18), transparent 28%),
+    var(--navy);
+}
+
+.partner-detail .management-row > span {
+  color: #9ecb91;
+}
+
+.partner-detail .detail-process-step > span {
+  border-color: #69a86f;
+}
+
+.partner-detail .detail-final-cta a {
+  background: #85bd7d;
+}
+
 .solution-featured h3 a,
 .solution-card h3 a {
   transition: color 180ms ease;
@@ -2628,22 +2653,15 @@ a {
     max-width: 680px;
   }
 
-  .alliance-panel {
+  .alliance-brand-strip {
     grid-template-columns: 1fr;
+    gap: 22px;
   }
 
-  .alliance-brand {
-    gap: 44px;
-  }
-
-  .alliance-lockup {
-    grid-template-columns: auto auto minmax(180px, 250px);
-    align-items: center;
-    gap: 24px;
-  }
-
-  .alliance-services {
+  .alliance-brand-copy {
+    padding: 20px 0 0;
     border-top: 1px solid var(--line);
+    border-left: 0;
   }
 
   .sectors-heading {
@@ -2898,52 +2916,45 @@ a {
     font-size: 16px;
   }
 
-  .alliance-brand {
-    padding: 30px 22px;
+  .alliance-brand-strip {
+    padding: 24px 20px;
   }
 
   .alliance-lockup {
-    grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 13px;
   }
 
   .alliance-staff-logo strong {
-    font-size: 19px;
+    font-size: 16px;
+  }
+
+  .alliance-staff-logo small {
+    max-width: 115px;
+    line-height: 1.2;
   }
 
   .ascende-logo {
-    width: min(100%, 230px);
+    width: 105px;
   }
 
-  .alliance-services {
-    grid-template-columns: 1fr;
+  .alliance-plus {
+    font-size: 22px;
   }
 
-  .alliance-service {
-    min-height: 0;
-    padding: 28px 22px;
-    border-top: 1px solid var(--line);
-    border-left: 0;
+  .alliance-service-link {
+    min-height: 76px;
+    padding: 17px 0;
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    gap: 10px;
   }
 
-  .alliance-service:first-child {
-    border-top: 0;
+  .alliance-service-link:hover {
+    padding-right: 8px;
+    padding-left: 8px;
   }
 
-  .alliance-service h3 {
-    margin: 28px 0 14px;
-  }
-
-  .alliance-footer {
-    padding: 22px 20px;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .alliance-footer a {
-    justify-content: space-between;
-    padding-top: 18px;
-    border-top: 1px solid #cbdadd;
+  .alliance-service-link h3 {
+    font-size: 18px;
   }
 
   .sectors-section {

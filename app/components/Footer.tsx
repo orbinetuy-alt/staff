@@ -3,7 +3,7 @@ import Link from "next/link";
 const primaryLinks = [
   { label: "Inicio", href: "/#inicio" },
   { label: "Soluciones", href: "/#soluciones" },
-  { label: "Alianza", href: "/#alianza" },
+  { label: "Partner", href: "/#partner" },
   { label: "Sectores", href: "/#sectores" },
   { label: "Cómo trabajamos", href: "/#como-trabajamos" },
   { label: "Contacto", href: "/#contacto" },
