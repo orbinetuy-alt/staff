@@ -5,6 +5,7 @@ import { CvApplicationModal } from "./components/CvApplicationModal";
 import { CompanyContactForm } from "./components/CompanyContactForm";
 import { OrganizationStructuredData } from "./components/OrganizationStructuredData";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -177,94 +178,103 @@ export default function Home() {
 
       <section
         className="alliance-section"
-        id="alianza"
+        id="partner"
         aria-labelledby="alliance-title"
         data-reveal="sheet"
       >
         <div className="alliance-shell">
           <div className="alliance-heading" data-reveal="heading">
             <div>
-              <span className="alliance-eyebrow">Alianza estratégica</span>
-              <h2 id="alliance-title">
-                Más capacidades, una solución integral.
-              </h2>
+              <span className="alliance-eyebrow">Partner estratégico</span>
+              <h2 id="alliance-title">Partner en Gestión del Talento</h2>
             </div>
             <p>
-              Staff Point trabaja en alianza con Ascênde para acompañar a las
-              empresas más allá de la incorporación de personal, sumando
-              experiencia especializada en evaluación, capacitación y
-              desarrollo organizacional.
+              Junto a Ascênde ampliamos nuestras capacidades para acompañar a
+              las empresas en la evaluación, el desarrollo y la gestión
+              integral de sus equipos.
             </p>
           </div>
 
-          <div className="alliance-panel">
-            <div className="alliance-brand" data-reveal="card">
-              <div className="alliance-lockup" aria-label="Staff Point más Ascênde">
-                <div className="alliance-staff-logo">
-                  <span className="brand-mark" aria-hidden="true" />
-                  <span>
-                    <strong>STAFF POINT</strong>
-                    <small>Gestión y tercerización de personal</small>
-                  </span>
-                </div>
-                <span className="alliance-plus" aria-hidden="true">+</span>
-                <Image
-                  className="ascende-logo"
-                  src="/ascende.png"
-                  width={300}
-                  height={143}
-                  alt="Ascênde Soluciones Sustentables"
-                />
+          <div className="alliance-brand-strip" data-reveal="card">
+            <div className="alliance-lockup" aria-label="Staff Point más Ascênde">
+              <div className="alliance-staff-logo">
+                <span className="brand-mark" aria-hidden="true" />
+                <span>
+                  <strong>STAFF POINT</strong>
+                  <small>Gestión y tercerización de personal</small>
+                </span>
               </div>
-
-              <div className="alliance-brand-copy">
-                <span>Dos equipos especializados</span>
-                <p>
-                  Cada necesidad es atendida por el equipo con la experiencia
-                  adecuada, manteniendo una visión coordinada de toda la
-                  gestión del talento.
-                </p>
-              </div>
+              <span className="alliance-plus" aria-hidden="true">+</span>
+              <Image
+                className="ascende-logo"
+                src="/ascende.png"
+                width={300}
+                height={143}
+                alt="Ascênde Soluciones Sustentables"
+              />
             </div>
 
-            <div className="alliance-services" aria-label="Servicios complementarios de Ascênde">
-              <article className="alliance-service reveal-delay-1" data-reveal="card">
-                <span aria-hidden="true">01</span>
-                <h3>Evaluaciones psicolaborales y técnicas</h3>
-                <p>
-                  Entrevistas por competencias, pruebas psicotécnicas,
-                  evaluación de líderes e informes profesionales.
-                </p>
-              </article>
-
-              <article className="alliance-service reveal-delay-2" data-reveal="card">
-                <span aria-hidden="true">02</span>
-                <h3>Coaching y capacitación</h3>
-                <p>
-                  Programas de liderazgo, desarrollo profesional, cursos,
-                  talleres y acompañamiento personalizado.
-                </p>
-              </article>
-
-              <article className="alliance-service reveal-delay-3" data-reveal="card">
-                <span aria-hidden="true">03</span>
-                <h3>Gestión y desarrollo organizacional</h3>
-                <p>
-                  Evaluación de desempeño, clima laboral, gestión por
-                  competencias y mejora continua.
-                </p>
-              </article>
+            <div className="alliance-brand-copy">
+              <span>Dos equipos especializados</span>
+              <p>
+                Staff Point se especializa en selección y tercerización de
+                personal. Ascênde complementa la propuesta con soluciones de
+                gestión humana y desarrollo organizacional.
+              </p>
             </div>
           </div>
 
-          <div className="alliance-footer reveal-delay-4" data-reveal="card">
-            <p>
-              Staff Point lidera la selección y tercerización. Ascênde amplía
-              el alcance con soluciones especializadas para desarrollar
-              personas y organizaciones.
-            </p>
+          <div
+            className="alliance-service-links"
+            aria-label="Servicios complementarios de Ascênde"
+          >
+            {[
+              [
+                "01",
+                "Evaluaciones psicolaborales y técnicas",
+                "/partner/evaluaciones-psicolaborales-y-tecnicas",
+              ],
+              [
+                "02",
+                "Coaching y capacitación",
+                "/partner/coaching-y-capacitacion",
+              ],
+              [
+                "03",
+                "Gestión y desarrollo organizacional",
+                "/partner/gestion-y-desarrollo-organizacional",
+              ],
+              [
+                "04",
+                "Mediación y resolución de conflictos",
+                "/partner/mediacion-y-resolucion-de-conflictos",
+              ],
+              [
+                "05",
+                "Tercerización de la gestión integral de RR. HH.",
+                "/partner/tercerizacion-gestion-integral-rrhh",
+              ],
+            ].map(([number, title, href], index) => (
+              <Link
+                className={`alliance-service-link reveal-delay-${index + 1}`}
+                data-reveal="card"
+                href={href}
+                key={href}
+              >
+                <span className="alliance-service-number" aria-hidden="true">
+                  {number}
+                </span>
+                <h3>{title}</h3>
+                <span className="alliance-service-arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="alliance-more reveal-delay-5" data-reveal="card">
             <a href="https://ascende.com.uy" target="_blank" rel="noreferrer">
-              Conocer Ascênde <span aria-hidden="true">↗</span>
+              Conocer a nuestro partner <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>

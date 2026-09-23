@@ -13,6 +13,10 @@ type ProcessItem = ContentItem & {
 };
 
 type SolutionDetailPageProps = {
+  categoryLabel?: string;
+  categoryHref?: string;
+  eyebrow?: string;
+  variant?: "solution" | "partner";
   title: string;
   intro: string;
   currentLabel: string;
@@ -32,6 +36,10 @@ type SolutionDetailPageProps = {
 };
 
 export function SolutionDetailPage({
+  categoryLabel = "Soluciones",
+  categoryHref = "/#soluciones",
+  eyebrow,
+  variant = "solution",
   title,
   intro,
   currentLabel,
@@ -50,7 +58,7 @@ export function SolutionDetailPage({
   ctaText,
 }: SolutionDetailPageProps) {
   return (
-    <main className="detail-page">
+    <main className={`detail-page ${variant === "partner" ? "partner-detail" : ""}`}>
       <ScrollReveal />
       <Navbar />
 
@@ -59,13 +67,14 @@ export function SolutionDetailPage({
           <nav className="breadcrumbs" aria-label="Migas de navegación">
             <Link href="/">Inicio</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/#soluciones">Soluciones</Link>
+            <Link href={categoryHref}>{categoryLabel}</Link>
             <span aria-hidden="true">/</span>
             <span aria-current="page">{currentLabel}</span>
           </nav>
 
           <div className="detail-hero-grid">
             <div className="detail-hero-copy">
+              {eyebrow ? <span className="detail-eyebrow">{eyebrow}</span> : null}
               <h1 id="detail-title">{title}</h1>
               <p>{intro}</p>
               <Link className="detail-primary-cta" href="/#contacto">

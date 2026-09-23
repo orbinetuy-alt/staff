@@ -11,6 +11,11 @@ const prefetchedRoutes = [
   "/soluciones/reclutamiento-y-seleccion",
   "/soluciones/personal-temporal",
   "/soluciones/equipos-dedicados",
+  "/partner/evaluaciones-psicolaborales-y-tecnicas",
+  "/partner/coaching-y-capacitacion",
+  "/partner/gestion-y-desarrollo-organizacional",
+  "/partner/mediacion-y-resolucion-de-conflictos",
+  "/partner/tercerizacion-gestion-integral-rrhh",
 ];
 
 function normalizePathname(pathname: string) {
@@ -93,8 +98,11 @@ export function RouteTransition() {
       }, 1600);
     };
 
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
+    // Capture the click before Next.js Link handles it. In the bubbling phase,
+    // Link has already called preventDefault, so the route animation would be
+    // skipped for client-side navigations.
+    document.addEventListener("click", handleClick, true);
+    return () => document.removeEventListener("click", handleClick, true);
   }, [router]);
 
   useEffect(() => {
